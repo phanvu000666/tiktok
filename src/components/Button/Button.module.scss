@@ -5,6 +5,7 @@
     border-radius: 4px;
     padding: 8px 16px;
     font-size: 1.6rem;
+    line-height: 2rem;
     font-weight: 700;
     cursor: pointer;
     background-color: var(--white-color);
@@ -25,6 +26,7 @@
         background-color: rgba(254, 44, 85, 0.06);
     }
 }
+
 .rounded {
     border-radius: 52px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
@@ -71,4 +73,9 @@
 .icon + .title,
 .title + .icon {
     margin-left: 8px;
+}
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
 }
