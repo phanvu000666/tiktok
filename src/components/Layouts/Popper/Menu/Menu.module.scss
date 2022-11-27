@@ -7,15 +7,42 @@
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        padding: 11px 18px;
+        padding: 10px 10px;
         border-radius: 0;
+        color: var(--text-color);
+        
     }
 }
 .menu-item {
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
+    &.separate {
+        border-top: 1px solid rgba(22,24,35,0.12);  
+    }
 }
 .menu-popper {
     padding-bottom: 8px;
+}
+
+//Header Menu
+.header {
+    position: relative;
+    margin-top: -8px;
+    height: 50px;
+    // align-items: center;
+}
+.back-btn {
+    width: 50px;
+    background-color: transparent;
+    height: 100%;
+    font-size: 1.8rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.header-title {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
 }
