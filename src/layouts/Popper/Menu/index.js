@@ -2,14 +2,14 @@ import classNames from 'classnames/bind';
 // import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import styles from './Menu.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Layouts/Popper';
+import { Wrapper as PopperWrapper } from '~/layouts/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import { useState } from 'react';
 const cx = classNames.bind(styles);
 const defaultFunc = () => {};
 
-function Menu({ children, items = [], hideOnClick = false, onChange = defaultFunc}) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFunc }) {
     const [history, setHistor] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItem = () => {

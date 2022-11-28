@@ -16,7 +16,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import { UploadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
-import routes from '~/config/routes';
+import config from '~/config';
 import Menu from '../Popper/Menu';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -78,7 +78,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routes.home} className={cx('logo-link')}>
+                    <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="Tiktok" />
                     </Link>
                 </div>

@@ -5,9 +5,9 @@ import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchService from '~/services/searchService';
 import AccountItem from '~/components/AccountItem';
-import { Wrapper as PopperWrapper } from '~/components/Layouts/Popper';
+import { Wrapper as PopperWrapper } from '~/layouts/Popper';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hook';
@@ -28,7 +28,7 @@ function Search() {
         }
         const fetchApi = async () => {
             setLoading(true);
-            const res = await searchServices.search(debounced);
+            const res = await searchService.search(debounced);
             setSearchResult(res);
             setLoading(false);
         };
