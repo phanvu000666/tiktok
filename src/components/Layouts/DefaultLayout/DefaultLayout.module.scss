@@ -5,9 +5,10 @@
     align-items: center;
 }
 .container {
-    width: var(--default-layout-width);
     display: flex;
+    width: var(--default-layout-width);
     padding: 0 var(--default-layout-horizontal-spacer);
+    padding-top: var(--default-layout-header-height);
 }
 .contain {
     flex: 1;

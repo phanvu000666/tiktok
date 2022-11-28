@@ -6,17 +6,19 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faMessage,
     faUser,
     faCoins,
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+
+import { UploadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
+import routes from '~/config/routes';
 import Menu from '../Popper/Menu';
 import Button from '~/components/Button';
-import { UploadIcon } from '~/components/Icons';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Image from '~/components/Image';
@@ -29,6 +31,7 @@ const MENU_ITEMS = [
         title: 'English',
         children: {
             title: 'Language',
+            // eslint-disable-next-line no-sparse-arrays
             data: [
                 {
                     type: 'language',
@@ -75,11 +78,12 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    <Link to={routes.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok" />
+                    </Link>
                 </div>
-                <div>
-                    <Search />
-                </div>
+                <Search />
+
                 <div className={cx('actions')}>
                     {isLogin ? (
                         <>
@@ -89,9 +93,17 @@ function Header() {
                                     <UploadIcon />
                                 </button>
                             </Tippy>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon className={cx('action-icon')} icon={faMessage} />
-                            </button>
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('new-notification')}>22</span>
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>

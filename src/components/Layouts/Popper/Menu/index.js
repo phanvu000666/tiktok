@@ -9,7 +9,7 @@ import { useState } from 'react';
 const cx = classNames.bind(styles);
 const defaultFunc = () => {};
 
-function Menu({ children, items = [], onChange = defaultFunc }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFunc}) {
     const [history, setHistor] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItem = () => {
@@ -33,6 +33,7 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
     };
     return (
         <HeadlessTippy
+            hideOnClick={hideOnClick}
             interactive
             delay={[0, 500]}
             offset={[10, 10]}
@@ -49,7 +50,7 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
                                 }}
                             />
                         )}
-                        {renderItem()}
+                        <div className={cx('menu-scrollable')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}
