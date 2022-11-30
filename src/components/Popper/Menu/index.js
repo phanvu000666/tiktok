@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 // import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import styles from './Menu.module.scss';
@@ -32,6 +32,21 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
             );
         });
     };
+    const handleBack = () => {
+        setHistor((prev) => prev.slice(0, prev.length - 1));
+        console.log(history);
+    };
+    const renderResult = (artrs) => (
+        <div className={cx('menu-list')} tabIndex={-1} {...artrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+                <div className={cx('menu-scrollable')}>{renderItem()}</div>
+            </PopperWrapper>
+        </div>
+    );
+    const handleResetMenu = () => {
+        setHistor((prev) => prev.slice(0, 1));
+    };
     return (
         <HeadlessTippy
             hideOnClick={hideOnClick}
@@ -39,25 +54,8 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
             delay={[0, 500]}
             offset={[10, 10]}
             placement={'bottom-end'}
-            render={(artrs) => (
-                <div className={cx('menu-list')} tabIndex={-1} {...artrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title}
-                                onBack={() => {
-                                    setHistor((prev) => prev.slice(0, prev.length - 1));
-                                    console.log(history);
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-scrollable')}>{renderItem()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onHide={() => {
-                setHistor((prev) => prev.slice(0, 1));
-            }}
+            render={renderResult}
+            onHide={handleResetMenu}
         >
             {children}
         </HeadlessTippy>
@@ -67,6 +65,6 @@ Menu.propTypes = {
     children: PropTypes.node.isRequired,
     item: PropTypes.array,
     hideOnClick: PropTypes.bool,
-    onChange: PropTypes.func
-}
+    onChange: PropTypes.func,
+};
 export default Menu;
