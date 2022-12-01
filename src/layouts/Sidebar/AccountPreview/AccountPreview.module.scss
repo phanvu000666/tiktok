@@ -1,0 +1,75 @@
+.wrapper {
+    padding: 18px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.body {
+    margin-top: 8px;
+}
+
+.account-username {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    width: fit-content;
+    cursor: pointer;
+}
+.follow-btn {
+    padding: 6px 28px;
+}
+.check-icon {
+    font-size: 1.4rem;
+    color: #20d5ec;
+    margin-left: 4px;
+}
+.account-name {
+    font-size: 1.4rem;
+    opacity: #161823bf; //thập lục phân
+    line-height: 2rem;
+    font-weight: 400;
+    width: fit-content;
+    cursor: pointer;
+
+    // color: rgba(22, 24, 35, 1);
+}
+.analytics {
+    margin-top: 8px;
+    display: block;
+}
+.follower-number {
+    font-weight: 700;
+    margin-right: 6px;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    display: inline-block;
+}
+.follower-title {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.7rem;
+    line-height: 2rem;
+    display: inline-block;
+    margin-right: 12px;
+}
+.like-number {
+    font-weight: 700;
+    margin-right: 6px;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    display: inline-block;
+}
+.like-title {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.7rem;
+    line-height: 2rem;
+    display: inline-block;
+}

@@ -1,0 +1,75 @@
+.wrapper {
+    position: relative;
+    padding: 16px 0;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 0;
+        height: 1px;
+        background: rgba(22, 24, 35, 0.12);
+        -webkit-transform: scaleY(0.5);
+        -moz-transform: scaleY(0.5);
+        -ms-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+.menu-popper {
+    width: 320px;
+}
+.label {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.75);
+    padding: 0 8px;
+    margin: 0 0 8px;
+}
+
+// Account items
+.account-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    transition: background-color ease-in-out 0.2s;
+    border-radius: 2px;
+    cursor: default;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+.account-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.account-infor {
+    flex: 1;
+    margin-left: 12px;
+}
+.account-username {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+.check-icon {
+    font-size: 1.4rem;
+    color: #20d5ec;
+    margin-left: 4px;
+}
+.account-name {
+    font-size: 1.2rem;
+    opacity: #161823bf;
+    line-height: 1.2rem;
+    font-weight: 400;
+}
+.more-btn {
+    color: rgb(254, 44, 85);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 8px;
+    cursor: pointer;
+}
